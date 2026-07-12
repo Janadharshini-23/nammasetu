@@ -1,0 +1,56 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { api } from "@/lib/api";
+import { useAuth } from "@/lib/auth";
+import { useLang } from "@/lib/i18n";
+import SealMark from "@/components/SealMark";
+
+export default function RegisterPage() {
+  const { login } = useAuth();
+  const { t } = useLang();
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async () => {
+    setLoading(true); setError("");
+    try {
+      const out = await api<{ access_token: string; name: string; email: string }>("/api/auth/register", {
+        method: "POST", body: JSON.stringify({ name, email, password }),
+      });
+      login(out.access_token, out.name, out.email);
+      router.push("/check");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Registration failed");
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <div className="container-page flex max-w-md flex-col items-center py-16">
+      <span className="text-banyan"><SealMark size={40} /></span>
+      <h1 className="mt-3 font-display text-3xl font-semibold">{t("register")}</h1>
+      <div className="card mt-6 w-full space-y-4">
+        <div>
+          <label className="label" htmlFor="name">Name</label>
+          <input id="name" className="field" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div>
+          <label className="label" htmlFor="email">Email</label>
+          <input id="email" type="email" className="field" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div>
+          <label className="label" htmlFor="password">Password (min 8 characters)</label>
+          <input id="password" type="password" className="field" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && submit()} />
+        </div>
+        {error && <p className="bg-alertlight p-2.5 text-sm text-alert border border-alert/20 rounded-lg">{error}</p>}
+        <button onClick={submit} disabled={loading} className="btn-primary w-full">{loading ? "…" : t("register")}</button>
+        <p className="text-sm text-inkmuted">Already have an account? <Link href="/login" className="text-banyan underline">{t("login")}</Link></p>
+      </div>
+    </div>
+  );
+}

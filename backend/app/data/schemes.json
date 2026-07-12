@@ -1,0 +1,872 @@
+[
+  {
+    "slug": "pm-kisan",
+    "ministry": "Ministry of Agriculture & Farmers Welfare",
+    "tags": [
+      "agriculture",
+      "income-support"
+    ],
+    "apply_url": "https://pmkisan.gov.in",
+    "rules": {
+      "occupations": [
+        "farmer"
+      ],
+      "min_age": 18
+    },
+    "en": {
+      "name": "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)",
+      "summary": "Direct income support for land-holding farmer families, paid straight into bank accounts in three instalments a year.",
+      "benefits": "₹6,000 per year in three instalments of ₹2,000.",
+      "eligibility_text": "Land-holding farmer families, subject to exclusions (income-tax payers, institutional landholders, serving/retired government employees).",
+      "documents": [
+        "Aadhaar card",
+        "Land ownership records",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री किसान सम्मान निधि (PM-KISAN)",
+      "summary": "भूमिधारक किसान परिवारों को सीधे बैंक खाते में मिलने वाली आय सहायता, हर साल तीन किस्तों में।",
+      "benefits": "हर साल ₹6,000, तीन किस्तों में ₹2,000-₹2,000 करके।",
+      "eligibility_text": "भूमिधारक किसान परिवार, कुछ अपवादों के साथ (आयकर देने वाले, बड़े संस्थागत भूमिधारक, सरकारी कर्मचारी)।",
+      "documents": [
+        "आधार कार्ड",
+        "भूमि स्वामित्व रिकॉर्ड",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pm-kisan-maandhan",
+    "ministry": "Ministry of Agriculture & Farmers Welfare",
+    "tags": [
+      "agriculture",
+      "pension"
+    ],
+    "apply_url": "https://maandhan.in",
+    "rules": {
+      "occupations": [
+        "farmer"
+      ],
+      "min_age": 18,
+      "max_age": 40
+    },
+    "en": {
+      "name": "PM Kisan Maandhan Yojana",
+      "summary": "A voluntary contributory pension scheme for small and marginal farmers.",
+      "benefits": "Assured pension of ₹3,000 per month after age 60.",
+      "eligibility_text": "Small and marginal farmers (up to 2 hectares) aged 18–40.",
+      "documents": [
+        "Aadhaar card",
+        "Land records",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री किसान मानधन योजना",
+      "summary": "छोटे और सीमांत किसानों के लिए स्वैच्छिक पेंशन योजना।",
+      "benefits": "60 वर्ष की आयु के बाद हर महीने ₹3,000 की निश्चित पेंशन।",
+      "eligibility_text": "छोटे और सीमांत किसान (2 हेक्टेयर तक ज़मीन), आयु 18 से 40 वर्ष।",
+      "documents": [
+        "आधार कार्ड",
+        "भूमि रिकॉर्ड",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "kisan-credit-card",
+    "ministry": "Ministry of Agriculture & Farmers Welfare",
+    "tags": [
+      "agriculture",
+      "credit"
+    ],
+    "apply_url": "https://www.jansamarth.in",
+    "rules": {
+      "occupations": [
+        "farmer"
+      ],
+      "min_age": 18,
+      "max_age": 75
+    },
+    "en": {
+      "name": "Kisan Credit Card (KCC)",
+      "summary": "Short-term credit for cultivation and allied activities at subsidised interest rates.",
+      "benefits": "Crop loans (interest subvention brings effective rate to ~4% on prompt repayment).",
+      "eligibility_text": "Farmers, including owner-cultivators, tenant farmers, sharecroppers; also animal husbandry and fisheries.",
+      "documents": [
+        "Aadhaar card",
+        "Land documents",
+        "Bank account details / passbook",
+        "Passport-size photo"
+      ]
+    },
+    "hi": {
+      "name": "किसान क्रेडिट कार्ड (KCC)",
+      "summary": "खेती और संबंधित कार्यों के लिए सस्ती ब्याज दर पर अल्पकालिक ऋण।",
+      "benefits": "फसल ऋण (समय पर भुगतान करने पर ब्याज लगभग 4% तक कम हो जाता है)।",
+      "eligibility_text": "किसान: भूस्वामी, किरायेदार किसान, बटाईदार; पशुपालन और मत्स्य पालन करने वाले भी शामिल।",
+      "documents": [
+        "आधार कार्ड",
+        "भूमि दस्तावेज़",
+        "बैंक खाता विवरण / पासबुक",
+        "पासपोर्ट साइज़ फोटो"
+      ]
+    }
+  },
+  {
+    "slug": "pmfby",
+    "ministry": "Ministry of Agriculture & Farmers Welfare",
+    "tags": [
+      "agriculture",
+      "insurance"
+    ],
+    "apply_url": "https://pmfby.gov.in",
+    "rules": {
+      "occupations": [
+        "farmer"
+      ]
+    },
+    "en": {
+      "name": "PM Fasal Bima Yojana (Crop Insurance)",
+      "summary": "Crop insurance against natural calamities, pests and diseases at very low farmer premiums.",
+      "benefits": "Insurance payout for crop loss; farmer premium capped at 1.5–5% depending on crop.",
+      "eligibility_text": "All farmers growing notified crops in notified areas, including tenant farmers.",
+      "documents": [
+        "Aadhaar card",
+        "Land records / tenancy agreement",
+        "Bank account details / passbook",
+        "Sowing declaration"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री फसल बीमा योजना",
+      "summary": "प्राकृतिक आपदा, कीट और बीमारी से फसल नुकसान का बीमा, बहुत कम प्रीमियम पर।",
+      "benefits": "फसल नुकसान पर बीमा राशि; किसान का प्रीमियम फसल के अनुसार 1.5% से 5% तक सीमित।",
+      "eligibility_text": "अधिसूचित क्षेत्रों में अधिसूचित फसल उगाने वाले सभी किसान, किरायेदार किसान भी शामिल।",
+      "documents": [
+        "आधार कार्ड",
+        "भूमि रिकॉर्ड / किरायेदारी समझौता",
+        "बैंक खाता विवरण / पासबुक",
+        "बुवाई घोषणा पत्र"
+      ]
+    }
+  },
+  {
+    "slug": "pmay-gramin",
+    "ministry": "Ministry of Rural Development",
+    "tags": [
+      "housing",
+      "rural"
+    ],
+    "apply_url": "https://pmayg.nic.in",
+    "rules": {
+      "area": "rural"
+    },
+    "en": {
+      "name": "PM Awas Yojana: Gramin",
+      "summary": "Financial assistance to build pucca houses for houseless families and those living in kutcha houses in rural areas.",
+      "benefits": "₹1.20 lakh (plains) / ₹1.30 lakh (hilly & difficult areas) plus support for toilets and LPG.",
+      "eligibility_text": "Rural households identified via SECC deprivation criteria and Awaas+ survey.",
+      "documents": [
+        "Aadhaar card",
+        "Bank account details / passbook",
+        "MGNREGA job card (if any)",
+        "SECC reference"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री आवास योजना - ग्रामीण",
+      "summary": "ग्रामीण क्षेत्रों में बेघर परिवारों और कच्चे घरों में रहने वालों को पक्का घर बनाने के लिए आर्थिक सहायता।",
+      "benefits": "मैदानी क्षेत्रों में ₹1.20 लाख और पहाड़ी/दुर्गम क्षेत्रों में ₹1.30 लाख, साथ ही शौचालय और गैस कनेक्शन में सहायता।",
+      "eligibility_text": "SECC और आवास+ सर्वे में चिन्हित ग्रामीण परिवार।",
+      "documents": [
+        "आधार कार्ड",
+        "बैंक खाता विवरण / पासबुक",
+        "मनरेगा जॉब कार्ड (यदि हो)",
+        "SECC संदर्भ"
+      ]
+    }
+  },
+  {
+    "slug": "pmay-urban",
+    "ministry": "Ministry of Housing & Urban Affairs",
+    "tags": [
+      "housing",
+      "urban"
+    ],
+    "apply_url": "https://pmay-urban.gov.in",
+    "rules": {
+      "area": "urban",
+      "max_income": 600000
+    },
+    "en": {
+      "name": "PM Awas Yojana: Urban 2.0",
+      "summary": "Housing assistance and interest subsidy for economically weaker and low-income urban families.",
+      "benefits": "Central assistance / home-loan interest subsidy for eligible EWS and LIG families.",
+      "eligibility_text": "Urban families without a pucca house; EWS income up to ₹3 lakh, LIG up to ₹6 lakh per year.",
+      "documents": [
+        "Aadhaar card",
+        "Income certificate",
+        "Bank account details / passbook",
+        "Affidavit of no pucca house"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री आवास योजना - शहरी 2.0",
+      "summary": "आर्थिक रूप से कमज़ोर और कम आय वाले शहरी परिवारों के लिए आवास सहायता और ब्याज सब्सिडी।",
+      "benefits": "पात्र EWS और LIG परिवारों के लिए केंद्रीय सहायता / होम लोन ब्याज सब्सिडी।",
+      "eligibility_text": "बिना पक्के घर वाले शहरी परिवार; EWS की आय ₹3 लाख तक, LIG की आय ₹6 लाख तक प्रति वर्ष।",
+      "documents": [
+        "आधार कार्ड",
+        "आय प्रमाण पत्र",
+        "बैंक खाता विवरण / पासबुक",
+        "पक्का घर न होने का शपथ पत्र"
+      ]
+    }
+  },
+  {
+    "slug": "pmjay",
+    "ministry": "Ministry of Health & Family Welfare / NHA",
+    "tags": [
+      "health",
+      "insurance"
+    ],
+    "apply_url": "https://beneficiary.nha.gov.in",
+    "rules": {},
+    "en": {
+      "name": "Ayushman Bharat PM-JAY",
+      "summary": "The world's largest publicly funded health assurance scheme, covering hospitalisation for poor and vulnerable families.",
+      "benefits": "Free hospital treatment cover of ₹5 lakh per family per year at empanelled hospitals; senior citizens 70+ covered regardless of income.",
+      "eligibility_text": "Families identified through SECC deprivation/occupational criteria; all citizens aged 70+ are eligible for a ₹5 lakh cover.",
+      "documents": [
+        "Aadhaar card",
+        "Ration card / family ID"
+      ]
+    },
+    "hi": {
+      "name": "आयुष्मान भारत - प्रधानमंत्री जन आरोग्य योजना",
+      "summary": "गरीब और कमज़ोर परिवारों के अस्पताल में भर्ती होने के खर्च को कवर करने वाली दुनिया की सबसे बड़ी सरकारी स्वास्थ्य बीमा योजना।",
+      "benefits": "सूचीबद्ध अस्पतालों में प्रति परिवार प्रति वर्ष ₹5 लाख तक मुफ्त इलाज; 70 वर्ष से ऊपर के सभी नागरिक आय की परवाह किए बिना पात्र।",
+      "eligibility_text": "SECC मानदंडों से चिन्हित परिवार; 70 वर्ष या उससे अधिक आयु के सभी नागरिकों को ₹5 लाख का कवर मिलता है।",
+      "documents": [
+        "आधार कार्ड",
+        "राशन कार्ड / परिवार पहचान"
+      ]
+    }
+  },
+  {
+    "slug": "pm-mudra",
+    "ministry": "Ministry of Finance",
+    "tags": [
+      "business",
+      "credit"
+    ],
+    "apply_url": "https://www.jansamarth.in",
+    "rules": {
+      "occupations": [
+        "self-employed"
+      ],
+      "min_age": 18,
+      "max_age": 65
+    },
+    "en": {
+      "name": "PM MUDRA Yojana",
+      "summary": "Collateral-free loans for non-corporate, non-farm micro and small enterprises.",
+      "benefits": "Loans up to ₹20 lakh (Shishu / Kishore / Tarun / Tarun Plus categories).",
+      "eligibility_text": "Individuals and small businesses with income-generating activity in manufacturing, trading, services or allied agriculture.",
+      "documents": [
+        "Aadhaar card",
+        "Business plan / quotation",
+        "Bank account details / passbook",
+        "Proof of business address"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री मुद्रा योजना",
+      "summary": "छोटे और गैर-कॉर्पोरेट व्यवसायों के लिए बिना गारंटी के ऋण।",
+      "benefits": "₹20 लाख तक का ऋण (शिशु, किशोर, तरुण और तरुण प्लस श्रेणियां)।",
+      "eligibility_text": "विनिर्माण, व्यापार, सेवा या संबंधित कृषि गतिविधि करने वाले व्यक्ति और छोटे व्यवसाय।",
+      "documents": [
+        "आधार कार्ड",
+        "व्यवसाय योजना / कोटेशन",
+        "बैंक खाता विवरण / पासबुक",
+        "व्यवसाय के पते का प्रमाण"
+      ]
+    }
+  },
+  {
+    "slug": "stand-up-india",
+    "ministry": "Ministry of Finance",
+    "tags": [
+      "business",
+      "credit",
+      "women",
+      "sc-st"
+    ],
+    "apply_url": "https://www.standupmitra.in",
+    "rules": {
+      "min_age": 18
+    },
+    "en": {
+      "name": "Stand-Up India",
+      "summary": "Bank loans for SC/ST and women entrepreneurs to set up greenfield enterprises.",
+      "benefits": "Composite loans between ₹10 lakh and ₹1 crore.",
+      "eligibility_text": "SC/ST persons or women aged 18+, setting up a first-time (greenfield) enterprise.",
+      "documents": [
+        "Aadhaar card",
+        "Caste certificate (if SC/ST)",
+        "Project report",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "स्टैंड-अप इंडिया",
+      "summary": "SC/ST और महिला उद्यमियों के लिए नया व्यवसाय शुरू करने हेतु बैंक ऋण।",
+      "benefits": "₹10 लाख से ₹1 करोड़ तक का समग्र ऋण।",
+      "eligibility_text": "18 वर्ष या उससे अधिक आयु के SC/ST व्यक्ति या महिलाएं, जो पहली बार नया व्यवसाय शुरू कर रहे हों।",
+      "documents": [
+        "आधार कार्ड",
+        "जाति प्रमाण पत्र (यदि SC/ST हैं)",
+        "प्रोजेक्ट रिपोर्ट",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pmegp",
+    "ministry": "Ministry of MSME (KVIC)",
+    "tags": [
+      "business",
+      "employment"
+    ],
+    "apply_url": "https://www.kviconline.gov.in/pmegpeportal",
+    "rules": {
+      "min_age": 18
+    },
+    "en": {
+      "name": "PM Employment Generation Programme (PMEGP)",
+      "summary": "Credit-linked subsidy for setting up new micro-enterprises in manufacturing and services.",
+      "benefits": "Margin-money subsidy of 15–35% of project cost (projects up to ₹50 lakh manufacturing / ₹20 lakh services).",
+      "eligibility_text": "Individuals aged 18+; for projects above ₹10 lakh (manufacturing) / ₹5 lakh (services), minimum Class VIII pass.",
+      "documents": [
+        "Aadhaar card",
+        "Project report",
+        "Education certificate",
+        "Caste certificate (if applicable)"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री रोजगार सृजन कार्यक्रम (PMEGP)",
+      "summary": "विनिर्माण और सेवा क्षेत्र में नए सूक्ष्म उद्यम स्थापित करने के लिए ऋण से जुड़ी सब्सिडी।",
+      "benefits": "परियोजना लागत का 15% से 35% तक मार्जिन मनी सब्सिडी (विनिर्माण में ₹50 लाख और सेवा में ₹20 लाख तक की परियोजना)।",
+      "eligibility_text": "18 वर्ष या अधिक आयु के व्यक्ति; ₹10 लाख (विनिर्माण) / ₹5 लाख (सेवा) से अधिक की परियोजना के लिए कम से कम 8वीं पास होना ज़रूरी।",
+      "documents": [
+        "आधार कार्ड",
+        "प्रोजेक्ट रिपोर्ट",
+        "शिक्षा प्रमाण पत्र",
+        "जाति प्रमाण पत्र (यदि लागू हो)"
+      ]
+    }
+  },
+  {
+    "slug": "pm-svanidhi",
+    "ministry": "Ministry of Housing & Urban Affairs",
+    "tags": [
+      "business",
+      "credit",
+      "urban"
+    ],
+    "apply_url": "https://pmsvanidhi.mohua.gov.in",
+    "rules": {
+      "occupations": [
+        "street-vendor"
+      ]
+    },
+    "en": {
+      "name": "PM SVANidhi (Street Vendor Loans)",
+      "summary": "Collateral-free working-capital loans for street vendors, with interest subsidy and cashback on digital payments.",
+      "benefits": "Loans of ₹10,000 → ₹20,000 → ₹50,000 in successive cycles, plus 7% interest subsidy.",
+      "eligibility_text": "Street vendors vending in urban areas, holding a Certificate of Vending / identified in surveys.",
+      "documents": [
+        "Aadhaar card",
+        "Certificate of Vending / survey reference",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "पीएम स्वनिधि (रेहड़ी-पटरी विक्रेता ऋण योजना)",
+      "summary": "रेहड़ी-पटरी विक्रेताओं के लिए बिना गारंटी कार्यशील पूंजी ऋण, ब्याज सब्सिडी और डिजिटल भुगतान पर कैशबैक के साथ।",
+      "benefits": "क्रमिक चक्रों में ₹10,000, फिर ₹20,000, फिर ₹50,000 तक का ऋण, साथ ही 7% ब्याज सब्सिडी।",
+      "eligibility_text": "शहरी क्षेत्रों में रेहड़ी-पटरी लगाने वाले विक्रेता, जिनके पास वेंडिंग प्रमाण पत्र है या सर्वे में नाम है।",
+      "documents": [
+        "आधार कार्ड",
+        "वेंडिंग प्रमाण पत्र / सर्वे संदर्भ",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pm-vishwakarma",
+    "ministry": "Ministry of MSME",
+    "tags": [
+      "business",
+      "artisans",
+      "skills"
+    ],
+    "apply_url": "https://pmvishwakarma.gov.in",
+    "rules": {
+      "occupations": [
+        "artisan"
+      ],
+      "min_age": 18
+    },
+    "en": {
+      "name": "PM Vishwakarma",
+      "summary": "End-to-end support for traditional artisans and craftspeople: recognition, skilling, toolkit incentive and cheap credit.",
+      "benefits": "₹15,000 toolkit incentive, skill training with stipend, collateral-free loans up to ₹3 lakh at 5%.",
+      "eligibility_text": "Artisans in 18 listed trades (carpenter, tailor, blacksmith, potter, cobbler, etc.), aged 18+, working with hands and tools.",
+      "documents": [
+        "Aadhaar card",
+        "Bank account details / passbook",
+        "Ration card"
+      ]
+    },
+    "hi": {
+      "name": "पीएम विश्वकर्मा",
+      "summary": "पारंपरिक कारीगरों और शिल्पकारों के लिए पहचान, कौशल प्रशिक्षण, टूलकिट सहायता और सस्ता ऋण।",
+      "benefits": "₹15,000 का टूलकिट प्रोत्साहन, वजीफे के साथ कौशल प्रशिक्षण, 5% पर ₹3 लाख तक बिना गारंटी ऋण।",
+      "eligibility_text": "18 सूचीबद्ध व्यवसायों के कारीगर (बढ़ई, दर्जी, लोहार, कुम्हार, मोची आदि), आयु 18 वर्ष या अधिक, हाथ और औजारों से काम करने वाले।",
+      "documents": [
+        "आधार कार्ड",
+        "बैंक खाता विवरण / पासबुक",
+        "राशन कार्ड"
+      ]
+    }
+  },
+  {
+    "slug": "sukanya-samriddhi",
+    "ministry": "Ministry of Finance",
+    "tags": [
+      "women",
+      "savings",
+      "children"
+    ],
+    "apply_url": "https://www.indiapost.gov.in",
+    "rules": {
+      "gender": "female",
+      "max_age": 10
+    },
+    "en": {
+      "name": "Sukanya Samriddhi Yojana",
+      "summary": "High-interest, tax-free small savings account for the education and future of a girl child.",
+      "benefits": "Attractive government-set interest rate, EEE tax benefits; matures when the girl turns 21.",
+      "eligibility_text": "Account opened by parents/guardians for a girl child below 10 years of age.",
+      "documents": [
+        "Girl child's birth certificate",
+        "Guardian's Aadhaar/ID",
+        "Address proof"
+      ]
+    },
+    "hi": {
+      "name": "सुकन्या समृद्धि योजना",
+      "summary": "बालिका की शिक्षा और भविष्य के लिए उच्च ब्याज दर वाला, कर-मुक्त बचत खाता।",
+      "benefits": "सरकार द्वारा तय आकर्षक ब्याज दर, कर लाभ; बालिका के 21 वर्ष की होने पर खाता परिपक्व होता है।",
+      "eligibility_text": "माता-पिता/अभिभावक द्वारा 10 वर्ष से कम आयु की बालिका के लिए खोला गया खाता।",
+      "documents": [
+        "बालिका का जन्म प्रमाण पत्र",
+        "अभिभावक का आधार / पहचान पत्र",
+        "पता प्रमाण"
+      ]
+    }
+  },
+  {
+    "slug": "atal-pension",
+    "ministry": "Ministry of Finance / PFRDA",
+    "tags": [
+      "pension",
+      "financial-inclusion"
+    ],
+    "apply_url": "https://enps.nsdl.com",
+    "rules": {
+      "min_age": 18,
+      "max_age": 40
+    },
+    "en": {
+      "name": "Atal Pension Yojana (APY)",
+      "summary": "Guaranteed minimum pension scheme aimed at workers in the unorganised sector.",
+      "benefits": "Guaranteed pension of ₹1,000–₹5,000 per month from age 60, based on contribution.",
+      "eligibility_text": "Indian citizens aged 18–40 with a savings bank account; income-tax payers joining after Oct 2022 are not eligible.",
+      "documents": [
+        "Aadhaar card",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "अटल पेंशन योजना",
+      "summary": "असंगठित क्षेत्र के श्रमिकों के लिए न्यूनतम निश्चित पेंशन की गारंटी देने वाली योजना।",
+      "benefits": "60 वर्ष की आयु से योगदान के अनुसार हर महीने ₹1,000 से ₹5,000 तक निश्चित पेंशन।",
+      "eligibility_text": "18 से 40 वर्ष के भारतीय नागरिक जिनका बचत बैंक खाता है; अक्टूबर 2022 के बाद जुड़ने वाले आयकरदाता पात्र नहीं हैं।",
+      "documents": [
+        "आधार कार्ड",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pm-ujjwala",
+    "ministry": "Ministry of Petroleum & Natural Gas",
+    "tags": [
+      "women",
+      "energy",
+      "social-welfare"
+    ],
+    "apply_url": "https://www.pmuy.gov.in",
+    "rules": {
+      "gender": "female",
+      "min_age": 18
+    },
+    "en": {
+      "name": "PM Ujjwala Yojana 2.0",
+      "summary": "Free LPG connections for women from poor households to replace unsafe cooking fuels.",
+      "benefits": "Free LPG connection with first refill and stove; targeted subsidy on refills.",
+      "eligibility_text": "Adult women from poor households (SECC/BPL or listed categories) without an existing LPG connection.",
+      "documents": [
+        "Aadhaar card",
+        "Bank account details / passbook",
+        "Ration card / family composition proof"
+      ]
+    },
+    "hi": {
+      "name": "प्रधानमंत्री उज्ज्वला योजना 2.0",
+      "summary": "गरीब परिवारों की महिलाओं के लिए मुफ्त एलपीजी कनेक्शन, ताकि असुरक्षित ईंधन से खाना बनाने की ज़रूरत न पड़े।",
+      "benefits": "पहली रिफिल और चूल्हे के साथ मुफ्त एलपीजी कनेक्शन; रिफिल पर लक्षित सब्सिडी।",
+      "eligibility_text": "गरीब परिवारों (SECC/BPL या सूचीबद्ध श्रेणियों) की वयस्क महिलाएं जिनके पास पहले से एलपीजी कनेक्शन नहीं है।",
+      "documents": [
+        "आधार कार्ड",
+        "बैंक खाता विवरण / पासबुक",
+        "राशन कार्ड / परिवार संरचना प्रमाण"
+      ]
+    }
+  },
+  {
+    "slug": "nmms",
+    "ministry": "Ministry of Education",
+    "tags": [
+      "education",
+      "scholarship"
+    ],
+    "apply_url": "https://scholarships.gov.in",
+    "rules": {
+      "occupations": [
+        "student"
+      ],
+      "max_income": 350000,
+      "min_age": 12,
+      "max_age": 18
+    },
+    "en": {
+      "name": "National Means-cum-Merit Scholarship (NMMS)",
+      "summary": "Scholarships for meritorious students from economically weaker sections to reduce class-VIII dropouts.",
+      "benefits": "₹12,000 per year for students in classes IX–XII (state government schools).",
+      "eligibility_text": "Students who clear the state NMMS exam; parental income up to ₹3.5 lakh per year.",
+      "documents": [
+        "Income certificate",
+        "Marksheets",
+        "School bonafide certificate",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "राष्ट्रीय साधन सह मेधा छात्रवृत्ति योजना (NMMS)",
+      "summary": "आर्थिक रूप से कमज़ोर वर्ग के मेधावी छात्रों के लिए छात्रवृत्ति, ताकि कक्षा 8वीं के बाद पढ़ाई न छूटे।",
+      "benefits": "राज्य सरकारी स्कूलों में कक्षा 9वीं से 12वीं तक के छात्रों के लिए ₹12,000 प्रति वर्ष।",
+      "eligibility_text": "राज्य NMMS परीक्षा पास करने वाले छात्र; अभिभावक की आय ₹3.5 लाख प्रति वर्ष तक।",
+      "documents": [
+        "आय प्रमाण पत्र",
+        "मार्कशीट",
+        "स्कूल बोनाफाइड प्रमाण पत्र",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "csss-college",
+    "ministry": "Ministry of Education",
+    "tags": [
+      "education",
+      "scholarship"
+    ],
+    "apply_url": "https://scholarships.gov.in",
+    "rules": {
+      "occupations": [
+        "student"
+      ],
+      "max_income": 450000,
+      "min_age": 17,
+      "max_age": 25
+    },
+    "en": {
+      "name": "Central Sector Scholarship for College Students (CSSS)",
+      "summary": "Merit scholarships for top board-exam performers pursuing regular undergraduate/postgraduate courses.",
+      "benefits": "₹12,000/yr (UG first 3 years) and ₹20,000/yr thereafter.",
+      "eligibility_text": "Above 80th percentile in class XII, family income up to ₹4.5 lakh, regular degree course, not availing another scholarship.",
+      "documents": [
+        "Income certificate",
+        "Class XII marksheet",
+        "College admission proof",
+        "Bank account details / passbook",
+        "Aadhaar card"
+      ]
+    },
+    "hi": {
+      "name": "केंद्रीय क्षेत्र छात्रवृत्ति योजना (कॉलेज छात्रों के लिए)",
+      "summary": "बोर्ड परीक्षा में शीर्ष प्रदर्शन करने वाले छात्रों के लिए स्नातक/स्नातकोत्तर पाठ्यक्रमों हेतु मेधा छात्रवृत्ति।",
+      "benefits": "स्नातक के पहले 3 वर्ष ₹12,000/वर्ष और उसके बाद ₹20,000/वर्ष।",
+      "eligibility_text": "कक्षा 12वीं में 80 पर्सेंटाइल से ऊपर, परिवार की आय ₹4.5 लाख तक, नियमित डिग्री कोर्स, कोई अन्य छात्रवृत्ति न ले रहे हों।",
+      "documents": [
+        "आय प्रमाण पत्र",
+        "कक्षा 12वीं की मार्कशीट",
+        "कॉलेज प्रवेश प्रमाण",
+        "बैंक खाता विवरण / पासबुक",
+        "आधार कार्ड"
+      ]
+    }
+  },
+  {
+    "slug": "post-matric-sc",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "tags": [
+      "education",
+      "scholarship",
+      "sc-st"
+    ],
+    "apply_url": "https://scholarships.gov.in",
+    "rules": {
+      "occupations": [
+        "student"
+      ],
+      "categories": [
+        "sc"
+      ],
+      "max_income": 250000
+    },
+    "en": {
+      "name": "Post-Matric Scholarship for SC Students",
+      "summary": "Financial assistance for SC students studying at post-matriculation levels (class XI to PhD).",
+      "benefits": "Full compulsory fees plus academic allowance.",
+      "eligibility_text": "SC students with parental income up to ₹2.5 lakh per year.",
+      "documents": [
+        "Caste certificate",
+        "Income certificate",
+        "Previous marksheet",
+        "Bank account details / passbook",
+        "Aadhaar card"
+      ]
+    },
+    "hi": {
+      "name": "अनुसूचित जाति छात्रों के लिए पोस्ट-मैट्रिक छात्रवृत्ति",
+      "summary": "कक्षा 11वीं से लेकर पीएचडी तक पढ़ने वाले अनुसूचित जाति (SC) के छात्रों के लिए आर्थिक सहायता।",
+      "benefits": "अनिवार्य शुल्क पूरी तरह माफ, साथ ही शैक्षणिक भत्ता।",
+      "eligibility_text": "अनुसूचित जाति के छात्र जिनके अभिभावक की आय ₹2.5 लाख प्रति वर्ष तक हो।",
+      "documents": [
+        "जाति प्रमाण पत्र",
+        "आय प्रमाण पत्र",
+        "पिछली मार्कशीट",
+        "बैंक खाता विवरण / पासबुक",
+        "आधार कार्ड"
+      ]
+    }
+  },
+  {
+    "slug": "aicte-pragati",
+    "ministry": "AICTE / Ministry of Education",
+    "tags": [
+      "education",
+      "scholarship",
+      "women"
+    ],
+    "apply_url": "https://scholarships.gov.in",
+    "rules": {
+      "occupations": [
+        "student"
+      ],
+      "gender": "female",
+      "max_income": 800000
+    },
+    "en": {
+      "name": "AICTE Pragati Scholarship for Girls",
+      "summary": "Scholarships for girl students pursuing technical diploma or degree courses.",
+      "benefits": "₹50,000 per year for the duration of the course.",
+      "eligibility_text": "Girl students (up to two per family) in AICTE-approved technical courses; family income up to ₹8 lakh.",
+      "documents": [
+        "Income certificate",
+        "Admission proof",
+        "Class XII marksheet",
+        "Bank account details / passbook",
+        "Aadhaar card"
+      ]
+    },
+    "hi": {
+      "name": "एआईसीटीई प्रगति छात्रवृत्ति (बालिकाओं के लिए)",
+      "summary": "तकनीकी डिप्लोमा या डिग्री कोर्स कर रही छात्राओं के लिए छात्रवृत्ति।",
+      "benefits": "कोर्स की पूरी अवधि के लिए ₹50,000 प्रति वर्ष।",
+      "eligibility_text": "AICTE से मान्यता प्राप्त तकनीकी कोर्स में पढ़ने वाली छात्राएं (एक परिवार से अधिकतम दो), परिवार की आय ₹8 लाख तक।",
+      "documents": [
+        "आय प्रमाण पत्र",
+        "प्रवेश प्रमाण",
+        "कक्षा 12वीं की मार्कशीट",
+        "बैंक खाता विवरण / पासबुक",
+        "आधार कार्ड"
+      ]
+    }
+  },
+  {
+    "slug": "nsp-disability",
+    "ministry": "Dept. of Empowerment of Persons with Disabilities",
+    "tags": [
+      "education",
+      "scholarship",
+      "disability"
+    ],
+    "apply_url": "https://scholarships.gov.in",
+    "rules": {
+      "occupations": [
+        "student"
+      ],
+      "disability": true,
+      "max_income": 250000
+    },
+    "en": {
+      "name": "Scholarships for Students with Disabilities (Post-Matric)",
+      "summary": "Financial support for students with benchmark disabilities studying post-matric courses.",
+      "benefits": "Maintenance allowance, fee reimbursement and book/disability allowances.",
+      "eligibility_text": "Students with 40%+ disability, family income up to ₹2.5 lakh per year.",
+      "documents": [
+        "Disability certificate (UDID)",
+        "Income certificate",
+        "Admission proof",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "दिव्यांग छात्रों के लिए पोस्ट-मैट्रिक छात्रवृत्ति",
+      "summary": "बेंचमार्क दिव्यांगता वाले, पोस्ट-मैट्रिक कोर्स कर रहे छात्रों के लिए आर्थिक सहायता।",
+      "benefits": "रखरखाव भत्ता, शुल्क प्रतिपूर्ति, और किताब व दिव्यांगता भत्ता।",
+      "eligibility_text": "40% या अधिक दिव्यांगता वाले छात्र, परिवार की आय ₹2.5 लाख प्रति वर्ष तक।",
+      "documents": [
+        "दिव्यांगता प्रमाण पत्र (UDID)",
+        "आय प्रमाण पत्र",
+        "प्रवेश प्रमाण",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pm-internship",
+    "ministry": "Ministry of Corporate Affairs",
+    "tags": [
+      "employment",
+      "youth",
+      "skills"
+    ],
+    "apply_url": "https://pminternship.mca.gov.in",
+    "rules": {
+      "min_age": 21,
+      "max_age": 24,
+      "max_income": 800000,
+      "occupations": [
+        "unemployed"
+      ]
+    },
+    "en": {
+      "name": "PM Internship Scheme",
+      "summary": "Paid 12-month internships with India's top companies for youth who are not in full-time work or study.",
+      "benefits": "₹5,000 per month stipend plus ₹6,000 one-time grant, for 12 months.",
+      "eligibility_text": "Age 21–24, not in full-time employment or education; family income up to ₹8 lakh; graduates from premier institutes excluded.",
+      "documents": [
+        "Aadhaar card",
+        "Education certificates",
+        "Bank account details / passbook"
+      ]
+    },
+    "hi": {
+      "name": "पीएम इंटर्नशिप योजना",
+      "summary": "भारत की शीर्ष कंपनियों में 12 महीने की सशुल्क इंटर्नशिप, उन युवाओं के लिए जो अभी पूर्णकालिक नौकरी या पढ़ाई में नहीं हैं।",
+      "benefits": "₹5,000 प्रति माह वजीफा और ₹6,000 की एकमुश्त सहायता, 12 महीने के लिए।",
+      "eligibility_text": "आयु 21 से 24 वर्ष, पूर्णकालिक नौकरी या पढ़ाई में न हों; परिवार की आय ₹8 लाख तक; प्रमुख संस्थानों के स्नातक पात्र नहीं।",
+      "documents": [
+        "आधार कार्ड",
+        "शिक्षा प्रमाण पत्र",
+        "बैंक खाता विवरण / पासबुक"
+      ]
+    }
+  },
+  {
+    "slug": "pm-suryaghar",
+    "ministry": "Ministry of New & Renewable Energy",
+    "tags": [
+      "energy",
+      "housing"
+    ],
+    "apply_url": "https://pmsuryaghar.gov.in",
+    "rules": {},
+    "en": {
+      "name": "PM Surya Ghar: Muft Bijli Yojana",
+      "summary": "Subsidy for rooftop solar so households get up to 300 units of free electricity a month.",
+      "benefits": "Central subsidy up to ₹78,000 for a 3 kW rooftop solar system.",
+      "eligibility_text": "Households owning a house with a roof suitable for solar panels and a valid electricity connection.",
+      "documents": [
+        "Electricity bill",
+        "Proof of roof ownership",
+        "Bank account details / passbook",
+        "Aadhaar card"
+      ]
+    },
+    "hi": {
+      "name": "पीएम सूर्य घर: मुफ्त बिजली योजना",
+      "summary": "छत पर सोलर पैनल लगाने के लिए सब्सिडी, ताकि हर घर को हर महीने 300 यूनिट तक मुफ्त बिजली मिल सके।",
+      "benefits": "3 किलोवाट के रूफटॉप सोलर सिस्टम के लिए ₹78,000 तक केंद्रीय सब्सिडी।",
+      "eligibility_text": "ऐसा घर जिसकी छत सोलर पैनल के लिए उपयुक्त हो और जिसका बिजली कनेक्शन चालू हो।",
+      "documents": [
+        "बिजली का बिल",
+        "छत के स्वामित्व का प्रमाण",
+        "बैंक खाता विवरण / पासबुक",
+        "आधार कार्ड"
+      ]
+    }
+  },
+  {
+    "slug": "jan-suraksha",
+    "ministry": "Ministry of Finance",
+    "tags": [
+      "insurance",
+      "financial-inclusion"
+    ],
+    "apply_url": "https://www.jansuraksha.gov.in",
+    "rules": {
+      "min_age": 18,
+      "max_age": 70
+    },
+    "en": {
+      "name": "PMJJBY & PMSBY (Jan Suraksha Insurance)",
+      "summary": "Ultra-low-cost life and accident insurance linked to your bank account.",
+      "benefits": "₹2 lakh life cover (PMJJBY, ₹436/yr, ages 18–50) and ₹2 lakh accident cover (PMSBY, ₹20/yr, ages 18–70).",
+      "eligibility_text": "Bank account holders aged 18–70 (18–50 for the life-insurance component).",
+      "documents": [
+        "Bank account details / passbook",
+        "Aadhaar card"
+      ]
+    },
+    "hi": {
+      "name": "जन सुरक्षा बीमा योजनाएं (PMJJBY और PMSBY)",
+      "summary": "बैंक खाते से जुड़ी बहुत ही कम प्रीमियम वाली जीवन और दुर्घटना बीमा योजनाएं।",
+      "benefits": "₹2 लाख का जीवन बीमा (PMJJBY, ₹436/वर्ष, आयु 18-50) और ₹2 लाख का दुर्घटना बीमा (PMSBY, ₹20/वर्ष, आयु 18-70)।",
+      "eligibility_text": "18 से 70 वर्ष के बैंक खाताधारक (जीवन बीमा वाले हिस्से के लिए आयु 18-50)।",
+      "documents": [
+        "बैंक खाता विवरण / पासबुक",
+        "आधार कार्ड"
+      ]
+    }
+  }
+]

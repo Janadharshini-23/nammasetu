@@ -1,0 +1,181 @@
+"use client";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+
+const dict = {
+  en: {
+    tagline: "Your bridge to every government scheme",
+    heroTitle: "Find every government scheme you're eligible for",
+    heroSub: "Answer 8 simple questions. SchemeSetu checks 23 central schemes and explains exactly why you qualify: scholarships, loans, pensions, housing, insurance and more.",
+    checkNow: "Check my eligibility",
+    browseAll: "Browse all schemes",
+    askAI: "Ask the assistant",
+    navCheck: "Eligibility",
+    navSchemes: "Schemes",
+    navAssistant: "Assistant",
+    navSaved: "Saved",
+    login: "Log in",
+    register: "Create account",
+    logout: "Log out",
+    eligible: "Eligible",
+    likely: "Likely eligible, verify",
+    notEligible: "Not eligible",
+    documents: "Documents you'll need",
+    apply: "Apply on official portal",
+    save: "Save",
+    saved: "Saved",
+    disclaimer: "SchemeSetu is an independent guide. Rules change, so always verify on the official portal (myscheme.gov.in) before applying.",
+    whyMatch: "Why this matched you",
+    notProvided: " (not provided, verify)",
+    yourReport: "Your personalised report",
+    aiWrote: "Written by AI, based on your matches",
+    templateWrote: "A simple summary, based on your matches",
+    howToGetDoc: "How to get this",
+    howToApplySteps: "How to apply, step by step",
+    step1Title: "Gather your documents",
+    step1Detail: "Use the checklist above. Getting documents ready before you start saves the most time.",
+    step2Title: "Go to the official portal or a CSC",
+    step2Detail: "Use the apply link below, or visit your nearest Common Service Centre (CSC) if you are not comfortable applying online.",
+    step3Title: "Fill the form carefully",
+    step3Detail: "Double-check your name, Aadhaar number and bank details exactly as they appear on your documents.",
+    step4Title: "Submit and save your application number",
+    step4Detail: "Note down or screenshot your application/reference number. You will need it to track your application.",
+    findCsc: "Find your nearest Common Service Centre",
+    printChecklist: "Print this checklist",
+    assistantIntro: "Ask in plain words, like \"I am a farmer, what can I get?\" Answers are grounded only in the scheme database, never invented.",
+    tryOneOfThese: "Try one of these",
+    aiAnswer: "AI-generated answer",
+    retrievalOnly: "Simple search, no AI key set",
+    searchingSchemes: "Searching schemes",
+    askPlaceholder: "Ask about any scheme...",
+    send: "Send",
+    sessionExpired: "Session expired. Please log in again.",
+    loginToSave: "to save schemes and build your application shortlist.",
+    nothingSaved: "Nothing saved yet. Star schemes from their detail pages.",
+    noSearchMatch: "No schemes match that search.",
+    searchPlaceholder: "Search: solar, scholarship, loan...",
+    allTag: "all",
+    loadingSchemes: "Loading schemes...",
+  },
+  hi: {
+    tagline: "हर सरकारी योजना तक आपका सेतु",
+    heroTitle: "जानिए आप किन सरकारी योजनाओं के पात्र हैं",
+    heroSub: "8 आसान सवालों के जवाब दें। SchemeSetu 23 केंद्रीय योजनाओं की जाँच करता है और बताता है कि आप क्यों पात्र हैं: छात्रवृत्ति, ऋण, पेंशन, आवास, बीमा और बहुत कुछ।",
+    checkNow: "मेरी पात्रता जाँचें",
+    browseAll: "सभी योजनाएँ देखें",
+    askAI: "सहायक से पूछें",
+    navCheck: "पात्रता",
+    navSchemes: "योजनाएँ",
+    navAssistant: "सहायक",
+    navSaved: "सहेजी गई",
+    login: "लॉग इन",
+    register: "खाता बनाएँ",
+    logout: "लॉग आउट",
+    eligible: "पात्र",
+    likely: "संभावित पात्र, सत्यापित करें",
+    notEligible: "अपात्र",
+    documents: "आवश्यक दस्तावेज़",
+    apply: "आधिकारिक पोर्टल पर आवेदन करें",
+    save: "सहेजें",
+    saved: "सहेजा गया",
+    disclaimer: "SchemeSetu एक स्वतंत्र गाइड है। नियम बदलते रहते हैं, इसलिए आवेदन से पहले आधिकारिक पोर्टल (myscheme.gov.in) पर अवश्य जाँचें।",
+    whyMatch: "यह योजना आपसे क्यों मेल खाती है",
+    notProvided: " (जानकारी नहीं दी गई, सत्यापित करें)",
+    yourReport: "आपकी व्यक्तिगत रिपोर्ट",
+    aiWrote: "यह एआई द्वारा आपके परिणामों के आधार पर लिखा गया है",
+    templateWrote: "आपके परिणामों पर आधारित एक सरल सारांश",
+    howToGetDoc: "यह कैसे प्राप्त करें",
+    howToApplySteps: "आवेदन कैसे करें, चरण दर चरण",
+    step1Title: "अपने दस्तावेज़ इकट्ठा करें",
+    step1Detail: "ऊपर दी गई सूची का उपयोग करें। शुरू करने से पहले दस्तावेज़ तैयार रखने से सबसे ज़्यादा समय बचता है।",
+    step2Title: "आधिकारिक पोर्टल या CSC पर जाएं",
+    step2Detail: "नीचे दिए गए आवेदन लिंक का उपयोग करें, या अगर ऑनलाइन आवेदन करना मुश्किल लगे तो नज़दीकी कॉमन सर्विस सेंटर (CSC) जाएं।",
+    step3Title: "फॉर्म ध्यान से भरें",
+    step3Detail: "अपना नाम, आधार नंबर और बैंक विवरण अपने दस्तावेज़ों के अनुसार बिल्कुल सही भरें।",
+    step4Title: "जमा करें और अपना आवेदन नंबर सुरक्षित रखें",
+    step4Detail: "अपना आवेदन/संदर्भ नंबर नोट कर लें या उसका स्क्रीनशॉट लें। आवेदन ट्रैक करने के लिए यह ज़रूरी होगा।",
+    findCsc: "अपना नज़दीकी कॉमन सर्विस सेंटर खोजें",
+    printChecklist: "यह सूची प्रिंट करें",
+    assistantIntro: "आसान शब्दों में पूछें, जैसे \"मैं किसान हूं, मुझे क्या मिल सकता है?\" जवाब केवल योजना डेटाबेस पर आधारित होते हैं, कभी बनाए नहीं जाते।",
+    tryOneOfThese: "इनमें से कोई एक आज़माएं",
+    aiAnswer: "एआई द्वारा तैयार उत्तर",
+    retrievalOnly: "सामान्य खोज, कोई एआई कुंजी सेट नहीं है",
+    searchingSchemes: "योजनाएं खोजी जा रही हैं",
+    askPlaceholder: "किसी भी योजना के बारे में पूछें...",
+    send: "भेजें",
+    sessionExpired: "सत्र समाप्त हो गया है। कृपया फिर से लॉग इन करें।",
+    loginToSave: "योजनाएं सहेजने और अपनी आवेदन सूची बनाने के लिए।",
+    nothingSaved: "अभी तक कुछ सहेजा नहीं गया है। योजना पृष्ठ से स्टार करें।",
+    noSearchMatch: "इस खोज से कोई योजना नहीं मिली।",
+    searchPlaceholder: "खोजें: सोलर, छात्रवृत्ति, ऋण...",
+    allTag: "सभी",
+    loadingSchemes: "योजनाएं लोड हो रही हैं...",
+  },
+} as const;
+
+export type Lang = keyof typeof dict;
+type Key = keyof (typeof dict)["en"];
+
+const LangContext = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: Key) => string }>({
+  lang: "en",
+  setLang: () => {},
+  t: (k) => dict.en[k],
+});
+
+export function LangProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>("en");
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? (localStorage.getItem("lang") as Lang | null) : null;
+    if (stored === "en" || stored === "hi") setLangState(stored);
+  }, []);
+  const setLang = (l: Lang) => { setLangState(l); localStorage.setItem("lang", l); };
+  const t = (k: Key) => dict[lang][k] ?? dict.en[k];
+  return <LangContext.Provider value={{ lang, setLang, t }}>{children}</LangContext.Provider>;
+}
+
+export const TAG_LABELS: Record<string, { en: string; hi: string }> = {
+  agriculture: { en: "agriculture", hi: "कृषि" },
+  "income-support": { en: "income support", hi: "आय सहायता" },
+  pension: { en: "pension", hi: "पेंशन" },
+  credit: { en: "credit", hi: "ऋण" },
+  insurance: { en: "insurance", hi: "बीमा" },
+  housing: { en: "housing", hi: "आवास" },
+  rural: { en: "rural", hi: "ग्रामीण" },
+  urban: { en: "urban", hi: "शहरी" },
+  health: { en: "health", hi: "स्वास्थ्य" },
+  business: { en: "business", hi: "व्यवसाय" },
+  women: { en: "women", hi: "महिला" },
+  "sc-st": { en: "SC/ST", hi: "SC/ST" },
+  employment: { en: "employment", hi: "रोज़गार" },
+  artisans: { en: "artisans", hi: "कारीगर" },
+  skills: { en: "skills", hi: "कौशल" },
+  savings: { en: "savings", hi: "बचत" },
+  children: { en: "children", hi: "बच्चे" },
+  "financial-inclusion": { en: "financial inclusion", hi: "वित्तीय समावेशन" },
+  "social-welfare": { en: "social welfare", hi: "सामाजिक कल्याण" },
+  energy: { en: "energy", hi: "ऊर्जा" },
+  education: { en: "education", hi: "शिक्षा" },
+  scholarship: { en: "scholarship", hi: "छात्रवृत्ति" },
+  youth: { en: "youth", hi: "युवा" },
+  disability: { en: "disability", hi: "दिव्यांगता" },
+};
+
+export const OPTION_LABELS = {
+  gender: {
+    female: { en: "Female", hi: "महिला" }, male: { en: "Male", hi: "पुरुष" }, other: { en: "Other", hi: "अन्य" },
+  },
+  category: {
+    general: { en: "General", hi: "सामान्य" }, obc: { en: "OBC", hi: "OBC" }, sc: { en: "SC", hi: "SC" },
+    st: { en: "ST", hi: "ST" }, ews: { en: "EWS", hi: "EWS" },
+  },
+  occupation: {
+    student: { en: "Student", hi: "छात्र" }, farmer: { en: "Farmer", hi: "किसान" },
+    "self-employed": { en: "Self-employed / small business", hi: "स्वरोजगार / छोटा व्यवसाय" },
+    salaried: { en: "Salaried", hi: "वेतनभोगी" }, unemployed: { en: "Unemployed / seeking work", hi: "बेरोज़गार / नौकरी की तलाश में" },
+    artisan: { en: "Artisan / craftsperson", hi: "कारीगर / शिल्पकार" },
+    "street-vendor": { en: "Street vendor", hi: "रेहड़ी-पटरी विक्रेता" }, other: { en: "Other", hi: "अन्य" },
+  },
+  area: { rural: { en: "Rural", hi: "ग्रामीण" }, urban: { en: "Urban", hi: "शहरी" } },
+  yesno: { yes: { en: "Yes", hi: "हां" }, no: { en: "No", hi: "नहीं" } },
+} as const;
+
+export const useLang = () => useContext(LangContext);

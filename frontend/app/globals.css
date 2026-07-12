@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { @apply bg-khadi text-ink font-body antialiased; }
+
+.container-page { @apply mx-auto max-w-6xl px-4 sm:px-6; }
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-2.5
+  font-semibold text-khadi transition hover:bg-ink/90 focus:outline-none
+  focus-visible:ring-2 focus-visible:ring-saffron focus-visible:ring-offset-2
+  focus-visible:ring-offset-khadi disabled:opacity-50;
+}
+.btn-accent {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-banyan px-5 py-2.5
+  font-semibold text-white shadow-stamp transition hover:bg-banyandeep focus:outline-none
+  focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2
+  focus-visible:ring-offset-khadi disabled:opacity-50;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-lg border border-line bg-white
+  px-4 py-2 font-medium text-ink transition hover:border-banyan hover:text-banyan
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron;
+}
+.card {
+  @apply rounded-2xl border border-line bg-white p-5 shadow-stamp;
+}
+.field {
+  @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-ink transition
+  focus:border-banyan focus:outline-none focus-visible:ring-2 focus-visible:ring-banyan/25;
+}
+.label { @apply mb-1 block text-sm font-semibold text-ink; }
+.tag {
+  @apply inline-block rounded-full bg-banyanlight px-2.5 py-0.5 font-mono text-[11px]
+  font-medium uppercase tracking-wide text-banyandeep;
+}
+.eyebrow {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-saffron/40 bg-saffron/10
+  px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest text-saffrondeep;
+}
+
+/* Verdict seal badges: notched-circle stamp shape, not a plain pill */
+.seal-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1 font-mono text-[11px]
+  font-bold uppercase tracking-wider;
+}
+.seal-eligible { @apply seal-badge border-banyan text-banyan bg-banyanlight; }
+.seal-likely { @apply seal-badge border-saffron text-saffrondeep bg-saffron/10; }
+.seal-reject { @apply seal-badge border-alert text-alert bg-alertlight; }
+
+@media print {
+  header, footer, .print\:hidden { display: none !important; }
+  body { background: white; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@keyframes stamp-in {
+  0% { opacity: 0; transform: scale(1.15) rotate(-6deg); }
+  60% { opacity: 1; transform: scale(0.97) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.animate-stamp { animation: stamp-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }

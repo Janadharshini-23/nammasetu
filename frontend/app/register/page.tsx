@@ -26,7 +26,7 @@ export default function RegisterPage() {
       login(out.access_token, out.name, out.email);
       router.push("/check");
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Registration failed");
+      setError(e instanceof Error ? e.message : t("registrationFailed"));
     } finally { setLoading(false); }
   };
 
@@ -36,20 +36,20 @@ export default function RegisterPage() {
       <h1 className="mt-3 font-display text-3xl font-semibold">{t("register")}</h1>
       <div className="card mt-6 w-full space-y-4">
         <div>
-          <label className="label" htmlFor="name">Name</label>
+          <label className="label" htmlFor="name">{t("nameLabel")}</label>
           <input id="name" className="field" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div>
-          <label className="label" htmlFor="email">Email</label>
+          <label className="label" htmlFor="email">{t("emailLabel")}</label>
           <input id="email" type="email" className="field" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <label className="label" htmlFor="password">Password (min 8 characters)</label>
+          <label className="label" htmlFor="password">{t("passwordHelp")}</label>
           <input id="password" type="password" className="field" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && submit()} />
         </div>
         {error && <p className="bg-alertlight p-2.5 text-sm text-alert border border-alert/20 rounded-lg">{error}</p>}
-        <button onClick={submit} disabled={loading} className="btn-primary w-full">{loading ? "…" : t("register")}</button>
-        <p className="text-sm text-inkmuted">Already have an account? <Link href="/login" className="text-banyan underline">{t("login")}</Link></p>
+        <button onClick={submit} disabled={loading} className="btn-primary w-full">{loading ? t("loading") : t("register")}</button>
+        <p className="text-sm text-inkmuted">{t("alreadyHaveAccount")} <Link href="/login" className="text-banyan underline">{t("login")}</Link></p>
       </div>
     </div>
   );

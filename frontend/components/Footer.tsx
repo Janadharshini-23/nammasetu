@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 text-ink">
             <span className="text-banyan"><SealMark size={26} /></span>
-            <span className="font-display text-lg font-semibold">SchemeSetu</span>
+            <span className="font-display text-lg font-semibold">Namba <span className="text-saffrondeep">SchemeSetu</span></span>
           </div>
           <p className="mt-3 max-w-xs text-sm text-inkmuted">{t("disclaimer")}</p>
         </div>
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-line py-4">
         <p className="container-page font-mono text-xs text-inkmuted">
-          Independent, open-source project. Not affiliated with the Government of India.
+          Independent, open-source project. Not affiliated with the Government of India. · Namba SchemeSetu
         </p>
       </div>
     </footer>

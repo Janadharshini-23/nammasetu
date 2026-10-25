@@ -37,6 +37,26 @@ def check(profile: Profile, db: Session = Depends(get_db)):
 def _template_narrative(profile: Profile, eligible, likely) -> str:
     lang = (profile.lang or "en").lower()
     top = eligible[:5] or likely[:5]
+    if lang == "ta":
+        if not top:
+            return ("நீங்கள் பகிர்ந்த தகவல்களின் அடிப்படையில், தற்போது எந்தவொரு உறுதிசெய்யப்பட்ட திட்டங்களும் கிடைக்கவில்லை. "
+                    "சிறந்த முடிவுகளுக்கு மேலே வருமானம், தொழில் மற்றும் சமூகப் பிரிவு போன்ற கூடுதல் விவரங்களை நிரப்பவும்.")
+        lines = [f"{r.scheme.name}: {r.scheme.benefits}" for r in top]
+        return (f"உங்கள் சுயவிவரத்தின்படி, நீங்கள் {len(eligible)} திட்டங்களுக்குத் தகுதியுடையவராக உள்ளீர்கள், "
+                f"மேலும் {len(likely)} திட்டங்களுக்கு வாய்ப்புள்ளது. உங்களுக்கான மிகவும் பயனுள்ள திட்டங்கள்:\n\n" +
+                "\n".join(lines) +
+                "\n\nதேவையான ஆவணங்கள் மற்றும் விண்ணப்பிக்கும் முறையைக் காண ஏதேனும் ஒரு திட்டத்தைத் திறக்கவும். "
+                "விண்ணப்பிக்கும் முன் அதிகாரப்பூர்வ போர்ட்டலில் எப்போதும் விவரங்களைச் சரிபார்க்கவும்.")
+    if lang == "te":
+        if not top:
+            return ("మీరు అందించిన వివరాల ఆధారంగా ఇంకా ఏ నిర్దిష్ట పథకం సరిపోలలేదు. "
+                    "మెరుగైన ఫలితాల కోసం పైన ఆదాయం, వృత్తి మరియు వర్గం వంటి మరిన్ని వివరాలను నమోదు చేయండి.")
+        lines = [f"{r.scheme.name}: {r.scheme.benefits}" for r in top]
+        return (f"మీ ప్రొఫైల్ ప్రకారం, మీరు {len(eligible)} పథకాలకు అర్హులుగా ఉన్నారు "
+                f"మరియు మరో {len(likely)} పథకాలకు అవకాశం ఉంది. మీ కోసం అత్యంత ఉపయోగకరమైన పథకాలు:\n\n" +
+                "\n".join(lines) +
+                "\n\nమీకు అవసరమైన ఖచ్చితమైన పత్రాలు మరియు దరఖాస్తు విధానాన్ని చూడటానికి ఏదైనా పథకాన్ని తెరవండి. "
+                "దరఖాస్తు చేయడానికి ముందు ఎల్లప్పుడూ అధికారిక పోర్టల్‌లో వివరాలను ధృవీకరించుకోండి.")
     if lang == "hi":
         if not top:
             return ("आपने जो जानकारी दी है, उसके आधार पर अभी कोई पक्की योजना नहीं मिली। "
@@ -77,7 +97,14 @@ async def smart_check(profile: Profile, db: Session = Depends(get_db)):
             f"- {r.scheme.name}: {r.scheme.benefits}. Eligibility: {r.scheme.eligibility_text}. Apply: {r.scheme.apply_url}"
             for r in top
         )
-        lang_instruction = "Reply in simple, everyday Hindi (Devanagari script)." if lang == "hi" else "Reply in simple, everyday English."
+        if lang == "ta":
+            lang_instruction = "Reply in simple, everyday Tamil (Tamil script)."
+        elif lang == "te":
+            lang_instruction = "Reply in simple, everyday Telugu (Telugu script)."
+        elif lang == "hi":
+            lang_instruction = "Reply in simple, everyday Hindi (Devanagari script)."
+        else:
+            lang_instruction = "Reply in simple, everyday English."
         system = (
             "You are SchemeSetu. A person shared their profile and a rule engine already determined which "
             "government schemes they qualify for, listed below. Write a warm, encouraging, plain-language summary "

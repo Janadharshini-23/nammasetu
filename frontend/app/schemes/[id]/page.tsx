@@ -41,7 +41,7 @@ export default function SchemeDetail() {
   ];
 
   if (error) return <div className="container-page py-10"><p className="rounded-lg border border-alert/20 bg-alertlight p-3 text-alert">{error}</p></div>;
-  if (!scheme) return <div className="container-page py-10 text-inkmuted">Loading...</div>;
+  if (!scheme) return <div className="container-page py-10 text-inkmuted">{t("loadingScheme")}</div>;
 
   return (
     <div className="container-page max-w-3xl py-10">
@@ -55,9 +55,9 @@ export default function SchemeDetail() {
         <p className="mt-5 text-lg">{scheme.summary}</p>
 
         <div className="card mt-6">
-          <h2 className="font-display font-semibold">Benefits</h2>
+          <h2 className="font-display font-semibold">{t("benefitsHeading")}</h2>
           <p className="mt-1 font-mono font-semibold text-banyandeep">{scheme.benefits}</p>
-          <h2 className="mt-5 font-display font-semibold">Eligibility</h2>
+          <h2 className="mt-5 font-display font-semibold">{t("eligibilityHeading")}</h2>
           <p className="mt-1 text-inkmuted">{scheme.eligibility_text}</p>
         </div>
 

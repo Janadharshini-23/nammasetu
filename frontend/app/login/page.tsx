@@ -25,7 +25,7 @@ export default function LoginPage() {
       login(out.access_token, out.name, out.email);
       router.push("/saved");
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Login failed");
+      setError(e instanceof Error ? e.message : t("loginFailed"));
     } finally { setLoading(false); }
   };
 
@@ -35,16 +35,16 @@ export default function LoginPage() {
       <h1 className="mt-3 font-display text-3xl font-semibold">{t("login")}</h1>
       <div className="card mt-6 w-full space-y-4">
         <div>
-          <label className="label" htmlFor="email">Email</label>
+          <label className="label" htmlFor="email">{t("emailLabel")}</label>
           <input id="email" type="email" className="field" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <label className="label" htmlFor="password">Password</label>
+          <label className="label" htmlFor="password">{t("passwordLabel")}</label>
           <input id="password" type="password" className="field" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && submit()} />
         </div>
         {error && <p className="bg-alertlight p-2.5 text-sm text-alert border border-alert/20 rounded-lg">{error}</p>}
-        <button onClick={submit} disabled={loading} className="btn-primary w-full">{loading ? "…" : t("login")}</button>
-        <p className="text-sm text-inkmuted">New here? <Link href="/register" className="text-banyan underline">{t("register")}</Link></p>
+        <button onClick={submit} disabled={loading} className="btn-primary w-full">{loading ? t("loading") : t("login")}</button>
+        <p className="text-sm text-inkmuted">{t("newHere")} <Link href="/register" className="text-banyan underline">{t("register")}</Link></p>
       </div>
     </div>
   );

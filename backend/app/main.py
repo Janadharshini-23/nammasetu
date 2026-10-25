@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .database import Base, engine, SessionLocal
 from .seed import seed
 from . import llm
-from .routers import auth_routes, schemes, eligibility_routes, chat
+from .routers import auth_routes, schemes, eligibility_routes, chat, documents, applications
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("schemesetu")
@@ -21,11 +21,21 @@ app = FastAPI(
     version="0.1.0",
 )
 
-origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",") if o.strip()]
+default_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "http://localhost:3002",
+    "http://127.0.0.1:3002",
+]
+env_origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()]
+origins = list(dict.fromkeys(default_origins + env_origins))
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,3 +75,5 @@ app.include_router(auth_routes.router)
 app.include_router(schemes.router)
 app.include_router(eligibility_routes.router)
 app.include_router(chat.router)
+app.include_router(documents.router)
+app.include_router(applications.router)

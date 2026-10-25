@@ -22,10 +22,12 @@ def list_schemes(
     query = db.query(Scheme)
     if q:
         like = f"%{q.strip()}%"
-        # Search across both languages so switching to Hindi doesn't break search.
+        # Search across all languages so switching languages doesn't break search.
         query = query.filter(or_(
             Scheme.name.ilike(like), Scheme.summary.ilike(like), Scheme.benefits.ilike(like),
             Scheme.name_hi.ilike(like), Scheme.summary_hi.ilike(like), Scheme.benefits_hi.ilike(like),
+            Scheme.name_ta.ilike(like), Scheme.summary_ta.ilike(like), Scheme.benefits_ta.ilike(like),
+            Scheme.name_te.ilike(like), Scheme.summary_te.ilike(like), Scheme.benefits_te.ilike(like),
         ))
     schemes = query.order_by(Scheme.name).all()
     if tag:

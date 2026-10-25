@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "SchemeSetu: find every government scheme you're eligible for",
+  title: "Namba SchemeSetu: find every government scheme you're eligible for",
   description:
     "Answer 8 questions and discover which Indian government schemes you qualify for: scholarships, loans, pensions, housing and insurance, with clear reasons and document checklists.",
 };

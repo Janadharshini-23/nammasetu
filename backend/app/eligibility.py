@@ -25,37 +25,89 @@ from .schemas import Profile, CriterionResult
 
 
 def _label(lang: str, key: str, **kw) -> str:
-    hi = lang == "hi"
+    l = (lang or "en").lower()
     if key == "age":
         lo, hi_v = kw.get("lo"), kw.get("hi")
-        if hi:
+        if l == "ta":
+            return f"வயது {lo or 'எந்த'} முதல் {hi_v or 'எந்த'} ஆண்டுகள் வரை"
+        if l == "te":
+            return f"వయస్సు {lo or 'ఏదైనా'} నుండి {hi_v or 'ఏదైనా'} సంవత్సరాల మధ్య"
+        if l == "hi":
             return f"आयु {lo or 'कोई भी'} से {hi_v or 'कोई भी'} वर्ष के बीच"
         return f"Age {lo or 'any'} to {hi_v or 'any'} years"
     if key == "income":
         cap = kw["cap"]
-        return f"वार्षिक पारिवारिक आय ₹{cap:,} से कम या बराबर" if hi else f"Annual household income at or below ₹{cap:,}"
+        if l == "ta":
+            return f"ஆண்டு குடும்ப வருமானம் ₹{cap:,} அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்"
+        if l == "te":
+            return f"వార్షిక కుటుంబ ఆదాయం ₹{cap:,} లేదా అంతకంటే తక్కువగా ఉండాలి"
+        if l == "hi":
+            return f"वार्षिक पारिवारिक आय ₹{cap:,} से कम या बराबर"
+        return f"Annual household income at or below ₹{cap:,}"
     if key == "gender":
         g = kw["g"]
-        g_hi = {"female": "महिला", "male": "पुरुष", "other": "अन्य"}.get(g, g)
-        return f"आवेदक {g_hi} होना चाहिए" if hi else f"Applicant must be {g}"
+        if l == "ta":
+            g_ta = {"female": "பெண்", "male": "ஆண்", "other": "மற்றவர்கள்"}.get(g, g)
+            return f"விண்ணப்பதாரர் {g_ta} ஆக இருக்க வேண்டும்"
+        if l == "te":
+            g_te = {"female": "మహిళ", "male": "పురుషుడు", "other": "ఇతరులు"}.get(g, g)
+            return f"దరఖాస్తుదారు {g_te} అయి ఉండాలి"
+        if l == "hi":
+            g_hi = {"female": "महिला", "male": "पुरुष", "other": "अन्य"}.get(g, g)
+            return f"आवेदक {g_hi} होना चाहिए"
+        return f"Applicant must be {g}"
     if key == "categories":
         cats = kw["cats"]
-        return "श्रेणी: " + "/".join(c.upper() for c in cats) if hi else "Category: " + "/".join(c.upper() for c in cats)
+        if l == "ta":
+            return "சமூகப் பிரிவு: " + "/".join(c.upper() for c in cats)
+        if l == "te":
+            return "వర్గం: " + "/".join(c.upper() for c in cats)
+        if l == "hi":
+            return "श्रेणी: " + "/".join(c.upper() for c in cats)
+        return "Category: " + "/".join(c.upper() for c in cats)
     if key == "occupations":
         occs = kw["occs"]
-        occ_hi_map = {"farmer": "किसान", "student": "छात्र", "self-employed": "स्वरोजगार", "salaried": "वेतनभोगी",
-                      "unemployed": "बेरोज़गार", "artisan": "कारीगर", "street-vendor": "रेहड़ी-पटरी विक्रेता", "other": "अन्य"}
-        if hi:
+        if l == "ta":
+            occ_ta_map = {"farmer": "விவசாயி", "student": "மாணவர்", "self-employed": "சுயதொழில்", "salaried": "ஊதியம் பெறுபவர்",
+                          "unemployed": "வேலையில்லாதவர்", "artisan": "கைவினைஞர்", "street-vendor": "தெருவோர வியாபாரி", "other": "மற்றவை"}
+            return "தொழில்: " + "/".join(occ_ta_map.get(o, o) for o in occs)
+        if l == "te":
+            occ_te_map = {"farmer": "రైతు", "student": "విద్యార్థి", "self-employed": "స్వయం ఉపాధి", "salaried": "ఉద్యోగి",
+                          "unemployed": "నిరుద్యోగి", "artisan": "చేతివృత్తిదారుడు", "street-vendor": "వీధి వ్యాపారి", "other": "ఇతర"}
+            return "వృత్తి: " + "/".join(occ_te_map.get(o, o) for o in occs)
+        if l == "hi":
+            occ_hi_map = {"farmer": "किसान", "student": "छात्र", "self-employed": "स्वरोजगार", "salaried": "वेतनभोगी",
+                          "unemployed": "बेरोज़गार", "artisan": "कारीगर", "street-vendor": "रेहड़ी-पटरी विक्रेता", "other": "अन्य"}
             return "व्यवसाय: " + "/".join(occ_hi_map.get(o, o) for o in occs)
         return "Occupation: " + "/".join(occs)
     if key == "area":
         a = kw["a"]
-        a_hi = "ग्रामीण" if a == "rural" else "शहरी"
-        return f"{a_hi} क्षेत्र का निवासी होना चाहिए" if hi else f"Resident of a {a} area"
+        if l == "ta":
+            a_ta = "கிராமப்புற" if a == "rural" else "நகர்ப்புற"
+            return f"{a_ta} பகுதியில் வசிப்பவராக இருக்க வேண்டும்"
+        if l == "te":
+            a_te = "గ్రామీణ" if a == "rural" else "పట్టణ"
+            return f"{a_te} ప్రాంత నివాసి అయి ఉండాలి"
+        if l == "hi":
+            a_hi = "ग्रामीण" if a == "rural" else "शहरी"
+            return f"{a_hi} क्षेत्र का निवासी होना चाहिए"
+        return f"Resident of a {a} area"
     if key == "disability":
-        return "दिव्यांग व्यक्ति" if hi else "Person with disability"
+        if l == "ta":
+            return "மாற்றுத்திறனாளி"
+        if l == "te":
+            return "దివ్యాంగ వ్యక్తి"
+        if l == "hi":
+            return "दिव्यांग व्यक्ति"
+        return "Person with disability"
     if key == "minority":
-        return "अधिसूचित अल्पसंख्यक समुदाय से संबंधित" if hi else "Belongs to a notified minority community"
+        if l == "ta":
+            return "அறிவிக்கப்பட்ட சிறுபான்மையினர் சமூகத்தைச் சேர்ந்தவர்"
+        if l == "te":
+            return "నోటిఫై చేయబడిన మైనారిటీ వర్గానికి చెందినవారు"
+        if l == "hi":
+            return "अधिसूचित अल्पसंख्यक समुदाय से संबंधित"
+        return "Belongs to a notified minority community"
     return key
 
 

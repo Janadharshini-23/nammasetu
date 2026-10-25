@@ -29,6 +29,8 @@ def seed(db: Session) -> int:
         if db.query(Scheme).filter(Scheme.slug == entry["slug"]).first():
             continue
         en, hi = entry["en"], entry["hi"]
+        ta = entry.get("ta", {})
+        te = entry.get("te", {})
         db.add(Scheme(
             slug=entry["slug"],
             level="Central",
@@ -37,10 +39,15 @@ def seed(db: Session) -> int:
             rules=entry.get("rules", {}),
             apply_url=entry.get("apply_url"),
             name=en["name"], name_hi=hi["name"],
+            name_ta=ta.get("name"), name_te=te.get("name"),
             summary=en["summary"], summary_hi=hi["summary"],
+            summary_ta=ta.get("summary"), summary_te=te.get("summary"),
             benefits=en["benefits"], benefits_hi=hi["benefits"],
+            benefits_ta=ta.get("benefits"), benefits_te=te.get("benefits"),
             eligibility_text=en["eligibility_text"], eligibility_text_hi=hi["eligibility_text"],
+            eligibility_text_ta=ta.get("eligibility_text"), eligibility_text_te=te.get("eligibility_text"),
             documents=en["documents"], documents_hi=hi["documents"],
+            documents_ta=ta.get("documents", []), documents_te=te.get("documents", []),
         ))
         added += 1
     db.commit()

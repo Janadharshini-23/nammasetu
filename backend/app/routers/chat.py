@@ -43,7 +43,14 @@ async def chat(body: ChatIn, db: Session = Depends(get_db)):
             for s in matches
         ) or "No matching schemes found in the database."
         profile = body.profile.model_dump(exclude_none=True) if body.profile else {}
-        lang_instruction = "Respond in simple, everyday Hindi (Devanagari script)." if lang == "hi" else "Respond in simple, everyday English."
+        if lang == "ta":
+            lang_instruction = "Respond in simple, everyday Tamil (Tamil script)."
+        elif lang == "te":
+            lang_instruction = "Respond in simple, everyday Telugu (Telugu script)."
+        elif lang == "hi":
+            lang_instruction = "Respond in simple, everyday Hindi (Devanagari script)."
+        else:
+            lang_instruction = "Respond in simple, everyday English."
         system = (
             "You are SchemeSetu, an assistant that helps people in India, including people with little "
             "formal education or technology experience, discover government schemes. "
@@ -60,7 +67,17 @@ async def chat(body: ChatIn, db: Session = Depends(get_db)):
             return ChatOut(reply=reply, used_llm=True, schemes=[scheme_to_out(s, lang) for s in matches])
 
     if matches:
-        if lang == "hi":
+        if lang == "ta":
+            lines = [f"{getattr(s, 'name_ta', None) or s.name}: {getattr(s, 'benefits_ta', None) or s.benefits}. விண்ணப்பிக்கவும்: {s.apply_url}" for s in matches]
+            reply = ("உங்கள் கேள்விக்குத் தொடர்புடைய திட்டங்கள் இதோ:\n\n" + "\n\n".join(lines) +
+                     "\n\nதனிப்பயனாக்கப்பட்ட பட்டியலுக்கு, தகுதிச் சரிபார்ப்பை இயக்கவும். "
+                     "(சர்வரில் AI விசை அமைக்கப்படாததால் தற்போது நேரடித் தேடல் பதில்கள் காட்டப்படுகின்றன.)")
+        elif lang == "te":
+            lines = [f"{getattr(s, 'name_te', None) or s.name}: {getattr(s, 'benefits_te', None) or s.benefits}. దరఖాస్తు చేయండి: {s.apply_url}" for s in matches]
+            reply = ("మీ ప్రశ్నకు సంబంధించిన పథకాలు ఇక్కడ ఉన్నాయి:\n\n" + "\n\n".join(lines) +
+                     "\n\nవ్యక్తిగతీకరించిన జాబితా కోసం, అర్హత తనిఖీని అమలు చేయండి. "
+                     "(సర్వర్‌లో AI కీ సెట్ చేయనందున ప్రస్తుతం ప్రత్యక్ష శోధన సమాధానాలు చూపబడుతున్నాయి.)")
+        elif lang == "hi":
             lines = [f"{s.name_hi or s.name}: {s.benefits_hi or s.benefits}. आवेदन करें: {s.apply_url}" for s in matches]
             reply = ("आपके सवाल से जुड़ी योजनाएं यहां हैं.\n\n" + "\n\n".join(lines) +
                      "\n\nअपनी व्यक्तिगत सूची के लिए पात्रता जांचें. "
@@ -71,8 +88,13 @@ async def chat(body: ChatIn, db: Session = Depends(get_db)):
                      "\n\nFor a personalised list, run the eligibility checker. "
                      "(AI answers are off right now because no LLM API key is set on the server.)")
     else:
-        reply = ("मुझे इससे मेल खाती कोई योजना नहीं मिली. व्यक्तिगत सूची के लिए पात्रता जांच का उपयोग करें, या सभी योजनाएं देखें."
-                 if lang == "hi" else
-                 "I could not find schemes matching that. Try the eligibility checker for a personalised list, "
-                 "or browse all schemes.")
+        if lang == "ta":
+            reply = "இதற்குப் பொருந்தும் திட்டங்கள் எதையும் என்னால் கண்டுபிடிக்க முடியவில்லை. தனிப்பயனாக்கப்பட்ட பட்டியலுக்கு தகுதிச் சரிபார்ப்பைப் பயன்படுத்தவும் அல்லது அனைத்துத் திட்டங்களையும் உலாவவும்."
+        elif lang == "te":
+            reply = "దీనికి సరిపోలే పథకాలు ఏవీ నాకు కనుగొనబడలేదు. వ్యక్తిగతీకరించిన జాబితా కోసం అర్హత తనిఖీని ప్రయత్నించండి లేదా అన్ని పథకాలను బ్రౌజ్ చేయండి."
+        elif lang == "hi":
+            reply = "मुझे इससे मेल खाती कोई योजना नहीं मिली. व्यक्तिगत सूची के लिए पात्रता जांच का उपयोग करें, या सभी योजनाएं देखें."
+        else:
+            reply = ("I could not find schemes matching that. Try the eligibility checker for a personalised list, "
+                     "or browse all schemes.")
     return ChatOut(reply=reply, used_llm=False, schemes=[scheme_to_out(s, lang) for s in matches])

@@ -1,5 +1,6 @@
-from typing import Optional, List, Any
-from pydantic import BaseModel, EmailStr, Field
+from typing import Optional, List, Any, Literal
+from urllib.parse import urlsplit
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 
 class RegisterIn(BaseModel):
@@ -99,3 +100,77 @@ class ChatOut(BaseModel):
     reply: str
     used_llm: bool
     schemes: List[SchemeOut] = []
+
+
+# ─── Application Tracking ─────────────────────────────────────────────────────
+
+class TimelineEntryIn(BaseModel):
+    date: str = Field(..., max_length=20)    # "YYYY-MM-DD"
+    status: Literal["pending", "under_review", "approved", "rejected", "disbursed"]
+    note: Optional[str] = Field(default=None, max_length=500)
+
+    @field_validator("date")
+    @classmethod
+    def validate_date(cls, value: str) -> str:
+        from datetime import date
+        date.fromisoformat(value)
+        return value
+
+
+class ApplicationTrackIn(BaseModel):
+    scheme_name: str = Field(..., min_length=1, max_length=255)
+    scheme_slug: Optional[str] = Field(default=None, max_length=160)
+    application_number: str = Field(..., min_length=1, max_length=120)
+    applied_date: str = Field(..., max_length=20)
+    tracking_url: str = Field(..., min_length=1, max_length=500)
+    status_note: Optional[str] = Field(default=None, max_length=1000)
+
+    @field_validator("applied_date")
+    @classmethod
+    def validate_applied_date(cls, value: str) -> str:
+        from datetime import date
+        date.fromisoformat(value)
+        return value
+
+    @field_validator("tracking_url")
+    @classmethod
+    def validate_tracking_url(cls, value: str) -> str:
+        parsed = urlsplit(value)
+        if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
+            raise ValueError("Tracking portal URL must be a valid HTTPS URL")
+        return value
+
+
+class ApplicationTrackUpdate(BaseModel):
+    status: Optional[Literal["pending", "under_review", "approved", "rejected", "disbursed"]] = None
+    status_note: Optional[str] = Field(default=None, max_length=1000)
+    tracking_url: Optional[str] = Field(default=None, max_length=500)
+    timeline_entry: Optional[TimelineEntryIn] = None  # append a new entry
+
+    @field_validator("tracking_url")
+    @classmethod
+    def validate_tracking_url(cls, value: Optional[str]) -> Optional[str]:
+        if value is not None:
+            parsed = urlsplit(value)
+            if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
+                raise ValueError("Tracking portal URL must be a valid HTTPS URL")
+        return value
+
+
+class ApplicationTrackOut(BaseModel):
+    id: int
+    scheme_name: str
+    scheme_slug: Optional[str] = None
+    application_number: str
+    applied_date: Optional[str] = None
+    tracking_url: Optional[str] = None
+    status: str
+    status_source: str
+    status_note: Optional[str] = None
+    timeline: List[Any] = []
+    created_at: Any
+    updated_at: Any
+
+    class Config:
+        from_attributes = True
+
